@@ -1,7 +1,7 @@
 package edu.fscj.cen3024c.m4pizzarestaurant.service;
 
 import edu.fscj.cen3024c.m4pizzarestaurant.converter.PizzaConverter;
-import edu.fscj.cen3024c.m4pizzarestaurant.dto.Pizza.DTO;
+import edu.fscj.cen3024c.m4pizzarestaurant.dto.PizzaDTO;
 import edu.fscj.cen3024c.m4pizzarestaurant.entity.Pizza;
 import edu.fscj.cen3024c.m4pizzarestaurant.repository.PizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;

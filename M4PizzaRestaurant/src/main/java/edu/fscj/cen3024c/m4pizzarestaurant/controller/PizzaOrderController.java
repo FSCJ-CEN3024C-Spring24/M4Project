@@ -16,17 +16,6 @@ import java.util.List;
 @RequestMapping("/pizzaorders")
 public class PizzaOrderController {
     private final PizzaOrderService pizzaOrderService;
-
-    @Autowired
-    public  PizzaOrderController(PizzaOrderService pizzaOrderService) {
-        this.pizzaOrderService = pizzaOrderService;
-    }
-
-    @GetMapping
-    public ResponseEntity<List<PizzaOrder>> getAllPizzaOrders() {
-        List<PizzaOrder> pizzaOrders = pizzaOrderService.getAllPizzaOrders();
-        return ResponseEntity.ok(pizzaOrders);
-    }
     
     // insert your code here
 }

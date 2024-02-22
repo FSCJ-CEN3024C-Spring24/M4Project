@@ -22,7 +22,7 @@ public class PizzaOrder {
     @JoinColumn(name = "pizzaid", referencedColumnName = "pizzaid")
     private Pizza pizza;
 
-    @JoinColumn(name = "orderdate", referencedColumnName = "orderdate")
+    @JoinColumn(name = "orderdate")
     LocalDate orderDate;
 
     public int getOrderId() {

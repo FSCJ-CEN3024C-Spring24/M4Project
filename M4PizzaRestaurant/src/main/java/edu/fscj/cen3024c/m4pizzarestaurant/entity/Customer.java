@@ -24,6 +24,15 @@ public class Customer {
     @Column(name = "address", length = 255)
     private String address;
 
+    @Column(name = "city", length = 80)
+    private String city;
+
+    @Column(name = "state", length = 2)
+    private String state;
+
+    @Column(name = "postalcode", length = 40)
+    private String postalCode;
+
     @Column(name = "phonenumber", length = 255)
     private String phoneNumber;
 
@@ -63,6 +72,30 @@ public class Customer {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 
     public String getPhoneNumber() {

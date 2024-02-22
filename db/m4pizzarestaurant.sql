@@ -27,7 +27,13 @@ SET default_table_access_method = heap;
 CREATE TABLE public.customer (
     customerid integer NOT NULL,
     firstname character varying(255),
-    lastname character varying(255)
+    lastname character varying(255),
+    address text,
+    city text,
+    state character varying(2),
+    postalcode text,
+    phonenumber text,
+    userid text
 );
 
 
@@ -62,7 +68,8 @@ ALTER SEQUENCE public.customer_customerid_seq OWNED BY public.customer.customeri
 CREATE TABLE public.pizza (
     pizzaid integer NOT NULL,
     pizzasize integer,
-    pizzatype text
+    pizzatype text,
+    crusttype text
 );
 
 
@@ -97,7 +104,8 @@ ALTER SEQUENCE public.pizza_pizzaid_seq OWNED BY public.pizza.pizzaid;
 CREATE TABLE public.pizzaorder (
     customerid integer NOT NULL,
     pizzaid integer NOT NULL,
-    orderid integer NOT NULL
+    orderid integer NOT NULL,
+    orderdate date
 );
 
 
@@ -208,9 +216,9 @@ ALTER TABLE ONLY public.pizzaorder ALTER COLUMN orderid SET DEFAULT nextval('pub
 -- Data for Name: customer; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.customer (customerid, firstname, lastname) FROM stdin;
-1	John	Smith
-2	Sally	Brown
+COPY public.customer (customerid, firstname, lastname, address, city, state, postalcode, phonenumber, userid) FROM stdin;
+2	Sally	Brown	2 Pine Ln.	Orlando	FL	32805	407-555-2323	sallybrown
+1	John	Smith	1 Oak St.	Jacksonville	FL	32256	904-555-1212	johnsmith
 \.
 
 
@@ -218,9 +226,9 @@ COPY public.customer (customerid, firstname, lastname) FROM stdin;
 -- Data for Name: pizza; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.pizza (pizzaid, pizzasize, pizzatype) FROM stdin;
-1	10	pepperoni
-2	14	sausage
+COPY public.pizza (pizzaid, pizzasize, pizzatype, crusttype) FROM stdin;
+1	10	pepperoni	thick
+2	14	sausage	thin
 \.
 
 
@@ -228,9 +236,9 @@ COPY public.pizza (pizzaid, pizzasize, pizzatype) FROM stdin;
 -- Data for Name: pizzaorder; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.pizzaorder (customerid, pizzaid, orderid) FROM stdin;
-1	1	1
-2	2	2
+COPY public.pizzaorder (customerid, pizzaid, orderid, orderdate) FROM stdin;
+1	1	1	2024-02-05
+2	2	2	2024-02-13
 \.
 
 
